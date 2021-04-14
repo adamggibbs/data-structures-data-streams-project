@@ -1,0 +1,15 @@
+Here are the datasets we are using in this project:
+1. NYT bag of words
+    link: https://archive.ics.uci.edu/ml/datasets/Bag+of+Words
+    
+2. 3 FIMI Benchmark datasets
+    link: http://fimi.uantwerpen.be/data/
+    
+    a. Kosarak dataset
+        link: http://fimi.uantwerpen.be/data/kosarak.dat.gz
+    
+    b. webdocs dataset
+        link: http://fimi.uantwerpen.be/data/webdocs.dat.gz
+    
+    c. accidents dataset
+        link: http://fimi.uantwerpen.be/data/accidents.dat.gz
