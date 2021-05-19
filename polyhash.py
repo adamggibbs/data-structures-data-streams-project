@@ -3,29 +3,42 @@
 # import polyhash
 # polyhash.generatePolyhash(string,length of array)
 
-def generateAsciiMapping(string):
-    if not string.isalnum():
-        print(string)
+import string
+import random
+
+# this will enable us to get different mappings for different seeds hence independence
+def randomMap(seed):
+    mapping = {}
+    characters =  string.ascii_lowercase + '0123456789'
+    characters = list(characters)
+    random.Random(seed).shuffle(characters)
+
+    for i,char in enumerate(characters):
+        mapping[char] = i + 1
+
+    return mapping
+
+#will return integer value
+def generateAsciiMapping(item,seed):
+    mapping = randomMap(seed)
+
+    if not item.isalnum():
         raise Exception("Not alphanumeric")
         
-    l = list(string)
+    l = list(item)
     n = []
     
     for char in l:
         char = char.lower()
-        # a - z
-        if ord(char) > 57:
-            n.append(ord(char) - ord('a') + 11)
-        # 0 - 9
-        else: 
-            n.append(ord(char) - 47)
+        n.append(mapping[char])
     
     return n
 
-def generatePolyhash(string,mod):
+# will return a hash generated that maps an item between [0,(mod-1)]
+def generatePolyhash(string,mod,seed):
     p_power = 1
-    prime = 37
-    mapToInteger = generateAsciiMapping(string)
+    prime = 39
+    mapToInteger = generateAsciiMapping(string,seed)
     value = 0
     
     for no in mapToInteger:
