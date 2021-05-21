@@ -37,7 +37,7 @@ def generateAsciiMapping(item,seed):
 # will return a hash generated that maps an item between [0,(mod-1)]
 def generatePolyhash(string,mod,seed):
     p_power = 1
-    prime = 39
+    prime = 41
     mapToInteger = generateAsciiMapping(string,seed)
     value = 0
     
